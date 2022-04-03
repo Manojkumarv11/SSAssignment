@@ -1,0 +1,29 @@
+<?php
+$con=mysqli_connect("scalableservicesassignment.cz1kzfagdqhy.ap-south-1.rds.amazonaws.com","admin","123Amazon","Course");
+// Check connection
+if (mysqli_connect_errno())
+{
+echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+
+$result = mysqli_query($con,"SELECT * FROM `Course`.CourseVideo");
+
+echo "<table border='1'>
+<tr>
+<th>ID</th>
+<th>Title</th>
+<th>Description</th>
+</tr>";
+
+while($row = mysqli_fetch_array($result))
+{
+echo "<tr>";
+echo "<td>" . $row['ID'] . "</td>";
+echo "<td>" . $row['Title'] . "</td>";
+echo "<td>" . $row['Description'] . "</td>";
+echo "</tr>";
+}
+echo "</table>";
+
+mysqli_close($con);
+?>
