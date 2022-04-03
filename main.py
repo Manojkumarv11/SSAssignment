@@ -40,7 +40,9 @@ def playVideo():
             cursor.execute("SELECT * FROM Course.CourseVideo  WHERE ID= %s", (Course,))
             info = cursor.fetchone()
             hyperLink = info['Link']
-            return hyperLink
+            title = info['Title']
+            # print("info",info)
+            return render_template("PlayVideo.html", hyperLink=hyperLink, title=title)
 
     elif session['loginsuccess']:
         return render_template("PlayVideo.html")
