@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Login Page </title>
+    <title>Easy Learn Login Page </title>
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-with-prefix.css') }}">
     <!--<link rel="stylesheet" href="./assets/css/style.css">-->
@@ -20,18 +20,18 @@
     <div class="main-container">
         <div class="form-container">
 
-            <div class="srouce"><a title="" href="https://www.w3jar.com/beautiful-html-css-login-page-template/">Sample Log In Page</a></div>
+            <div class="srouce"><a title="Learn How to create Beautiful HTML & CSS login page template" href="https://www.w3jar.com/beautiful-html-css-login-page-template/">Log in to Easy Learn</a></div>
 
             <div class="form-body">
                 <h2 class="title">Log in with</h2>
-                <div class="social-login">
+                <!--<div class="social-login">
                     <ul>
                         <li class="google"><a href="#">Google</a></li>
                         <li class="fb"><a href="#">Facebook</a></li>
                     </ul>
                 </div><!-- SOCIAL LOGIN -->
 
-                <div class="_or">or</div>
+                <!--<div class="_or">or</div>-->
 
                 <form action="" class="the-form" method = "post">
 
