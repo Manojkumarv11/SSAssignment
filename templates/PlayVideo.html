@@ -26,11 +26,12 @@
 	</h2>
 </head>
 <body>
-<div class="srouce"><a><h2 class="title">Animated PowerPoint Slide Design Tutorial</h2></a></div>
+<div class="srouce"><a><h2 class="title">{{title}}</h2></a></div>
 </div>
+{% if hyperLink %}
 <video width="1280" height="720" controls>
-  <source src="https://d1kt47d0cneroo.cloudfront.net/Animated+PowerPoint+Slide+Design+Tutorial.mp4" type="video/mp4">
+  <source src='{{hyperLink}}' type="video/mp4">
 </video>
-
+{% endif %}
 </body>
 </html>
