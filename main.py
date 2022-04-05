@@ -12,11 +12,14 @@ app.config["MYSQL_DB"] = "UserInfo"
 
 db = MySQL(app)
 
-
+@app.route ( '/index' )
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        if 'email' in request.form and 'password' in request.form:
+        if request.form.get('Sign up') :
+         return redirect(url_for('StudentSignup'))  
+
+        if 'email' in request.form and 'password' in request.form and 'Log In' in request.form:
             email = request.form['email']
             password = request.form['password']
             cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -50,6 +53,22 @@ def playVideo():
     else:
         return "Error"
 
+
+@app.route('/StudentSignup', methods=['GET', 'POST'])
+def StudentSignup():
+    if request.method == 'POST':
+        if 'email' in request.form and 'password' in request.form and 'name' in request.form:
+            email = request.form['email']
+            password = request.form['password']
+            name = request.form['name']
+            cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+            id= cursor.lastrowid
+            cursor.execute("INSERT INTO UserInfo.logininfo (id, name, email, password) VALUES (%s, %s, %s, %s)", (id, name, email, password))
+            db.connection.commit()
+            return redirect(url_for('index'))
+           
+
+    return render_template("SignUp.html")
 
 
 
