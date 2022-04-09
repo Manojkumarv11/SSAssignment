@@ -307,3 +307,28 @@ li.fb a::before {
 .form-footer div a {
   color: #ffb37b;
 }
+.video-wrapper{
+  display: flex;
+}
+
+.course-dropdown{
+  width: 80%;
+  height: 5vh;
+}
+
+.play-button {
+  background: #ffb37b;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+  width: 20%;
+  margin-left: 1.8vw;
+  border-radius: 3px;
+  margin-top: 0 !important;
+  padding: 0 !important;
+  cursor: pointer;
+  color: black;
+  -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
