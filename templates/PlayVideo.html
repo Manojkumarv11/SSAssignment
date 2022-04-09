@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Muli:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-with-prefix.css') }}">
     <style>
-        .srouce{
+        .source{
             text-align: left;
             color: #ffffff;
             padding: 1px;
@@ -16,17 +16,20 @@
 	<h2 class="title" color = "ffffff">
 <label for="Course">Select the Microsoft Course</label>
 <form action="" class="the-form" method = "post">
-<select name="Course" id="Course">
-  <option value=2001>Animated PowerPoint Slide Design Tutorial</option>
-  <option value=2002>MS Excel - Vlookup in Excel Video Tutorial</option>
-</select>
-<input type="submit" value="Play">
+  <div class="video-wrapper">
+    <select name="Course" id="Course" class="course-dropdown">
+      <option value=2001>Animated PowerPoint Slide Design Tutorial</option>
+      <option value=2002>MS Excel - Vlookup in Excel Video Tutorial</option>
+    </select>
+    <input type="submit" value="Play" class="play-button">
+  </div>
+
 </form>
 </div>
 	</h2>
 </head>
 <body>
-<div class="srouce"><a><h2 class="title">{{title}}</h2></a></div>
+<div class="source"><a><h2 class="title">{{title}}</h2></a></div>
 </div>
 {% if hyperLink %}
 <video width="1280" height="720" controls>
