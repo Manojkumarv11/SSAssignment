@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, session,request
 from flask_mysqldb import MySQL
 import MySQLdb
+import random
 
 app = Flask(__name__)
 app.secret_key = "123456"
@@ -44,11 +45,19 @@ def playVideo():
             info = cursor.fetchone()
             hyperLink = info['Link']
             title = info['Title']
-            # print("info",info)
-            return render_template("PlayVideo.html", hyperLink=hyperLink, title=title)
+            cursor.execute("SELECT * FROM Course.CourseVideo")
+            coursesData = []
+            for row in cursor:
+                coursesData.append(row)
+            return render_template("PlayVideo.html", hyperLink=hyperLink, title=title,coursesData=coursesData)
 
     elif session['loginsuccess']:
-        return render_template("PlayVideo.html")
+        cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("SELECT * FROM Course.CourseVideo")
+        coursesData = []
+        for row in cursor:
+            coursesData.append(row)
+        return render_template("PlayVideo.html", coursesData=coursesData)
 
     else:
         return "Error"
@@ -62,7 +71,9 @@ def StudentSignup():
             password = request.form['password']
             name = request.form['name']
             cursor = db.connection.cursor(MySQLdb.cursors.DictCursor)
-            id= cursor.lastrowid
+            choices = list(range(100))
+            random.shuffle(choices)
+            id= 100000 + choices.pop()
             cursor.execute("INSERT INTO UserInfo.logininfo (id, name, email, password) VALUES (%s, %s, %s, %s)", (id, name, email, password))
             db.connection.commit()
             return redirect(url_for('index'))
