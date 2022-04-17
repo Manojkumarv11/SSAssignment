@@ -111,7 +111,7 @@ def adminLogin():
             else:
                 return "Login Error"
 
-    return render_template("Adminlogin.html")
+    return render_template("LoginAdmin.html")
 
 
 @app.route('/CourseAddition', methods=['GET', 'POST'])
@@ -145,6 +145,7 @@ def CourseAddition():
 
     else:
         return "Error"
+
 @app.route('/upload',methods=['post'])
 def upload():
     if request.method == 'POST':
@@ -185,7 +186,7 @@ def AdminSignup():
             db.connection.commit()
             return redirect(url_for('AdminLogin'))
 
-    return render_template("AdminSignUp.html")
+    return render_template("SignupAdmin.html")
 
 
 if __name__ == '__main__':
