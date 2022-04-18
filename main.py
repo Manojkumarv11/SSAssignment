@@ -93,7 +93,7 @@ def StudentSignup():
 
 
 @app.route('/AdminLogin', methods=['GET', 'POST'])
-def adminLogin():
+def AdminLogin():
     if request.method == 'POST':
         if request.form.get('Sign up'):
             return redirect(url_for('AdminSignup'))
